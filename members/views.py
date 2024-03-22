@@ -29,6 +29,10 @@ def testing(request):
   }
   return HttpResponse(template.render(context, request))
 
+def custom404(request, exception):
+  template = loader.get_template('404.html')
+  return HttpResponse(template.render({}, request), status=404)
+
 # def custom_404(request, exception):
 #     return render(request, '404.html', status=404)
 # def 404(request):

@@ -1,4 +1,5 @@
 from django.db import models
+# from .models import Member
 
 
 # Create your models here.
@@ -8,4 +9,6 @@ class Member(models.Model):
     phone = models.IntegerField(null=True)
     joined_date = models.DateField(null=True)
     
-from .models import Member
+
+def __str__(self):
+    return f"{self.firstname} {self.lastname}"
