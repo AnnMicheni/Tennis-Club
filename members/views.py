@@ -33,12 +33,17 @@ def custom404(request, exception):
   template = loader.get_template('404.html')
   return HttpResponse(template.render({}, request), status=404)
 
-# def custom_404(request, exception):
-#     return render(request, '404.html', status=404)
-# def 404(request):
-#   mymembers = 404.objects.all().values()
-#   template = loader.get_template('404.html')
-#   context = {
-#     'mymembers': mymembers,
-#   }
-# return render(request, '404.html', status=404)
+def testing(request):
+  template = loader.get_template ('template.html')
+  context = {
+    'firstname': 'Ann',
+  }
+  return HttpResponse(template.render(context,request))
+
+def testing(request):
+  mymembers = Member.objects.all().values()
+  template = loader.get_template('template.html')
+  context = {
+    'mymembers':mymembers,
+  }
+  return HttpResponse(template.render(context, request))

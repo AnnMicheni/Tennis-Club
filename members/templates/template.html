@@ -6,15 +6,35 @@
   <h1>{{ x }}</h1>
 {% endfor %}
 
-<p>In views.py you can see what the fruits variable looks like.</p>
+{% with firstname="Tobias"%}
+<h1>Hello {{ firstname }}, how are you?</h1>
+{% endwith %}
+
+<p>In views.py you can see how to import and fetch members from the database.</p>
 
 <ul>
-  {% for fruit in fruits %}
-  
-  <li> {{ fruit }} </li>
-  
+  {% for x in fruits %}
+  <li> {{ fruits }} </li>
   {% endfor %}
   </ul>
 
+  <ul>
+    {% for x in mymembers %}
+    <li>{{ x.firstname }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if greeting == 1 %}
+  <h1>Hello</h1>
+  {% else %}
+  <hi>Bye</hi>
+  {% endif %}
+
+  <ul> 
+    {% for x in mymembers %}
+    <li>{{ x.firstname }}</li>
+    {% endfor %}
+  </ul>
+  
 </body>
 </html>
