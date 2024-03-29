@@ -2,6 +2,26 @@
 <html>
 <body>
 
+  {% if "Ann" not in mymembers%}
+  <h1>Hello Ann</h1>
+  {% else %}
+  <h1>Goodbye</h1>
+  {% endif %}
+
+  {% if x is not y %}
+  <h1>Yes</h1>
+  {% else %}
+  <h1>No</h1>
+  {% endif %}
+
+  {% with var1=x var2=x %}
+  {% if var1 is var2%}
+  <h1>YES</h1>
+  {% else %}
+  <h1>NO</h1>
+  {% endif %}
+  {% endwith %}
+ 
 {% for x in fruits %}
   <h1>{{ x }}</h1>
 {% endfor %}
@@ -24,17 +44,7 @@
     {% endfor %}
   </ul>
 
-  {% if greeting == 1 %}
-  <h1>Hello</h1>
-  {% else %}
-  <hi>Bye</hi>
-  {% endif %}
 
-  <ul> 
-    {% for x in mymembers %}
-    <li>{{ x.firstname }}</li>
-    {% endfor %}
-  </ul>
   
 </body>
 </html>
