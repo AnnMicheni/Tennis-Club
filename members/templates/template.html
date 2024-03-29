@@ -2,6 +2,10 @@
 <html>
 <body>
 
+  <!-- template.html -->
+<h1>Testing Template Rendering</h1>
+
+<!-- if else and operators -->
   {% if "Ann" not in mymembers%}
   <h1>Hello Ann</h1>
   {% else %}
@@ -21,28 +25,57 @@
   <h1>NO</h1>
   {% endif %}
   {% endwith %}
- 
-{% for x in fruits %}
-  <h1>{{ x }}</h1>
-{% endfor %}
 
 {% with firstname="Tobias"%}
 <h1>Hello {{ firstname }}, how are you?</h1>
 {% endwith %}
 
+<!-- For Loop -->
+ <!-- For loop for the fruits -->
+  <!-- template.html -->
+{% if fruits %}
+<ul>
+    {% for x in fruits %}
+        <li>{{ x }}</li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>No fruits found.</p>
+{% endif %}
+{% for x in mymembers %}
+<h1>{{ x }}</h1>
+{% endfor %}
+
+{% for x in fruits %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+{% for x in cars %}
+<h1>{{ x.brand }}</h1>
+<p>{{ x.model }}</p>
+<p>{{ x.year }}</p>
+{% endfor %}
+
+
+  {% for x in Member %}
+  <li>{{ x.firstname }}</li>
+  {% endfor %}
+
+
+<p>In views.py you can see different returns from different objects</p>
+
+{% for x in mymembers %}
+  <h1>{{ x.id }}</h1>
+  <p>
+    {{ x.firstname }}
+    {{ x.lastname }}
+  </p>
+{% endfor %}  
+
 <p>In views.py you can see how to import and fetch members from the database.</p>
 
-<ul>
-  {% for x in fruits %}
-  <li> {{ fruits }} </li>
-  {% endfor %}
-  </ul>
-
-  <ul>
-    {% for x in mymembers %}
-    <li>{{ x.firstname }}</li>
-    {% endfor %}
-  </ul>
+  
 
 
   
