@@ -58,14 +58,14 @@
 {% endfor %}
 
 
-  {% for x in Member %}
+  {% for x in mymembers %}
   <li>{{ x.firstname }}</li>
   {% endfor %}
 
 
 <p>In views.py you can see different returns from different objects</p>
 
-{% for x in mymembers %}
+{% for x in members %}
   <h1>{{ x.id }}</h1>
   <p>
     {{ x.firstname }}
@@ -76,8 +76,51 @@
 <p>In views.py you can see how to import and fetch members from the database.</p>
 
   
+<ul>
+  {% for x in emptytestobject %}
+    <li>{{ x.firstname }}</li>
+  {% empty %}
+    <li>No members</li>
+  {% endfor %}
+</ul> 
 
+<ul>
+  {% for x in myobject %}
+    <li>{{ x.firstname }}</li>
+  {% empty %}
+    <li>No members</li>
+  {% endfor %}
+</ul> 
 
-  
+<ul>
+  {% for x in fruits %}
+    <li>{{ forloop.counter }}</li>
+  {% endfor %}
+</ul> 
+
+<h1>Welcome {# Everyone#}</h1>
+{% comment %}
+  <h1>Welcome ladies and gentlemen</h1>
+{% endcomment %}
+
+<h1>Hello</h1>
+
+<p>This page contains a footer in a template.</p>
+
+{% include 'footer.html' %} 
+
+<!DOCTYPE html>
+<html>
+<body>
+
+{% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+
+<h1>Welcome</h1>
+
+<p>This is my webpage</p>
+
+</body>
+</html> 
+
 </body>
 </html>

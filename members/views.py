@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
 from .models import Member
 
@@ -80,45 +81,13 @@ def testing(request):
   return HttpResponse(template.render(context, request))
 
 def members(request):
-  mymembers = Member.objects.all().values()
+  mymembers = Member.objects.all()
   template = loader.get_template('template.html')
-  context = {
-   'members': [
-  {
-    'id': 1,
-    'firstname': 'Emil',
-    'lastname': 'Refsnes',
-    'phone': 5551234,
-    'joined_date': mymembers.joined_date(2022, 1, 5)
-  },
-  {
-    'id': 2,
-    'firstname': 'Tobias',
-    'lastname': 'Refsnes',
-    'phone': 5557777,
-    'joined_date': mymembers.joined_date(2021, 4, 1)
-  },
-  {
-    'id': 3,
-    'firstname': 'Linus',
-    'lastname': 'Refsnes',
-    'phone': 5554321,
-    'joined_date': mymembers.joined_date(2021, 12, 24)
-  },
-  {
-    'id': 4,
-    'firstname': 'Lene',
-    'lastname': 'Refsnes',
-    'phone': 5551234,
-    'joined_date': mymembers.joined_date(2021, 5, 1)
-  },
-  {
-    'id': 5,
-    'firstname': 'Stalikken',
-    'lastname': 'Refsnes',
-    'phone': 5559876,
-    'joined_date': mymembers.joined_date(2022, 9, 29)
-  }
-],
-  }
-  return HttpResponse(template.render(context, request))
+  return render(request, 'template.html', {'mymembers': mymembers})
+
+def testing(request):
+  template = loader.get_template('template.html')
+  #context = {
+  # 'var1': 'John',
+  #}
+  return HttpResponse(template.render())
