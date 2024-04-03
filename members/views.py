@@ -86,8 +86,9 @@ def members(request):
   return render(request, 'template.html', {'mymembers': mymembers})
 
 def testing(request):
+  mydata = Member.objects.all()
   template = loader.get_template('template.html')
-  #context = {
-  # 'var1': 'John',
-  #}
-  return HttpResponse(template.render())
+  context = {
+    'mymembers': mydata,
+  }
+  return HttpResponse(template.render(context, request))
